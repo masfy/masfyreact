@@ -129,7 +129,7 @@ const Register = () => {
                 <span>Buat Akun Baru</span>
               </CardTitle>
               <CardDescription className="text-sm sm:text-base">
-                Isi data diri Anda untuk membuat akun baru di Kelas Guru
+                Isi data diri Anda untuk membuat akun baru di Clasfy
               </CardDescription>
             </CardHeader>
 
@@ -352,7 +352,7 @@ const Register = () => {
           className="text-center mt-6 sm:mt-8"
         >
           <p className="text-xs sm:text-sm text-gray-500">
-            © 2024 Kelas Guru. Platform pembelajaran digital.
+            © 2025 | Clasfy by Mas Alfy. All right reserved.
           </p>
         </motion.div>
       </motion.div>
