@@ -10,13 +10,12 @@ const AuthLayout = ({ children }: AuthLayoutProps) => {
       <div className="w-full max-w-md">
         <div className="flex flex-col items-center justify-center text-center mb-8">
           <h1 className="text-3xl font-bold text-blue-600">Clasfy</h1>
-          <p className="text-gray-500 mt-2">Platform Manajemen Kelas Digital Terintegrasi <br></br>untuk Guru dan Siswa.</p>
+          <p className="text-gray-500 mt-2">Platform Manajemen Kelas Digital Terintegrasi</p>
+          <p className="text-gray-500 mt-2">untuk Guru dan Siswa.</p>
         </div>
-        
         <div className="bg-white rounded-lg shadow-md p-6">
           {children}
         </div>
-        
         <div className="mt-6 text-center text-sm text-gray-500">
           &copy; {new Date().getFullYear()} | Clasfy by Mas Alfy. All rights reserved.
         </div>
