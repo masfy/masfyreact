@@ -58,12 +58,12 @@ const LoginPage = () => {
                 <GraduationCap className="w-6 h-6 text-white" />
               </div>
               <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                Kelas Guru
+                Clasfy
               </h1>
             </motion.div>
             
             <h2 className="text-2xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              Platform Manajemen Kelas Modern
+              Platform Manajemen Kelas Digital Terintegrasi.
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
               Kelola kelas, siswa, dan aktivitas pembelajaran dengan mudah dan efisien
