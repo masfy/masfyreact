@@ -47,7 +47,6 @@ const TeacherLayout = () => {
     { name: 'Kegiatan', path: '/guru/kegiatan', icon: <Calendar size={20} /> },
     { name: 'Bank Soal', path: '/guru/bank-soal', icon: <BookMarked size={20} /> },
     { name: 'Gamifikasi', path: '/guru/gamifikasi', icon: <BarChart size={20} /> },
-    { name: 'Pengaturan', path: '/guru/pengaturan', icon: <Settings size={20} /> },
   ];
 
   // Show loading if no user data yet
@@ -69,7 +68,7 @@ const TeacherLayout = () => {
         <div className="flex flex-col h-full bg-card border-r border-border">
           {/* Logo/Header */}
           <div className="h-16 flex items-center px-6 border-b border-border bg-card">
-            <h1 className="text-xl font-bold text-foreground">Kelas Guru</h1>
+            <h1 className="text-xl font-bold text-foreground">Clasfy</h1>
           </div>
           
           {/* Navigation */}
@@ -130,7 +129,7 @@ const TeacherLayout = () => {
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </Button>
-            <h1 className="text-lg font-bold text-foreground">Kelas Guru</h1>
+            <h1 className="text-lg font-bold text-foreground">Clasfy</h1>
           </div>
           <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary text-sm font-semibold">
             {currentUser.fullName?.[0] || currentUser.username?.[0] || 'G'}
