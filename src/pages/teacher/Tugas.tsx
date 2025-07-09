@@ -304,7 +304,11 @@ const TugasPage = () => {
         const processedAssignments = (response.assignments || [])
           .map((assignment: any) => {
             const className = getClassName(assignment.classId);
-            const status = getAssignmentStatus(assignment.dueDate);
+            const status = getAssignmentStatus(
+  assignment.dueDate,
+  assignment.completionRate
+);
+            
             
             return {
               id: assignment.id,
@@ -344,6 +348,10 @@ const TugasPage = () => {
   const getAssignmentStatus = (dueDate: string): 'active' | 'completed' | 'overdue' => {
     const now = new Date();
     const due = new Date(dueDate);
+
+    if (completionRate && completionRate >= 100) {
+    return 'completed';
+  }
     
     if (due < now) {
       return 'overdue';
