@@ -344,8 +344,45 @@ const TugasPage = () => {
     const foundClass = classes.find(cls => cls.id === classId);
     return foundClass ? foundClass.name : 'Unknown Class';
   };
+//tambahan
+const [students, setStudents] = useState<Student[]>([]);
+const [grades, setGrades] = useState<Grade[]>([]);
 
-  const getAssignmentStatus = (dueDate: string): 'active' | 'completed' | 'overdue' => {
+const loadStudents = async () => {
+  const response = await studentApi.getAll();
+  if (response.success) setStudents(response.students || []);
+};
+
+const loadGrades = async () => {
+  const response = await gradeApi.getAll();
+  if (response.success) setGrades(response.grades || []);
+};
+useEffect(() => {
+  loadAssignments();
+  loadStudents();
+  loadGrades();
+}, []);
+const submissionCount = grades.filter(
+  (g) => g.assignmentId === assignment.id
+).length;
+
+const classStudents = students.filter(
+  (s) => s.classId === assignment.classId
+);
+
+const totalStudents = classStudents.length;
+
+const completionRate = totalStudents > 0
+  ? (submissionCount / totalStudents) * 100
+  : 0;
+
+const status = getAssignmentStatus(assignment.dueDate, completionRate);
+
+  //tambahan
+  const getAssignmentStatus = (
+  dueDate: string,
+  completionRate?: number
+): 'active' | 'completed' | 'overdue' => {
     const now = new Date();
     const due = new Date(dueDate);
 
@@ -610,7 +647,9 @@ const TugasPage = () => {
                 className="flex items-center gap-2 order-3 sm:order-1"
               >
                 <Badge variant="secondary" className="bg-blue-100 text-blue-800 px-2 sm:px-3 py-1 text-xs sm:text-sm">
-                  {selectedAssignments.length} dipilih
+                  {assignment.status === 'completed' ? 'Selesai' :
+   assignment.status === 'overdue' ? 'Lewat Deadline' :
+   'Aktif'}
                 </Badge>
                 <Button 
                   variant="destructive" 
